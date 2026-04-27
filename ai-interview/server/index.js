@@ -7,7 +7,11 @@ const app = express(); // create app
 
 // ✅ CORS 
 app.use(cors({
-  origin: "http://localhost:3000",
+  origin: [
+    "http://localhost:3000",
+    "https://kapil212a-project1.vercel.app"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
 

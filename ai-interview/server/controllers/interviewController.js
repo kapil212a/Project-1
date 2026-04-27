@@ -6,18 +6,19 @@ const Feedback = require("../models/Feedback");
 // ================= START INTERVIEW =================
 exports.startInterview = async (req, res) => {
   try {
-    console.log("Incoming Data:", req.body);
-
     const { userId, role } = req.body;
 
-    console.log("Saving Interview:", userId, role);
-
-    const interview = await Interview.create({ userId, role });
+    const interview = await Interview.create({
+      userId,
+      role,
+      score: 0,              // default
+      status: "Completed"    // default
+    });
 
     res.json({
       interviewId: interview._id
     });
-
+    
     let questionPool = [];
 
     // 🎯 ROLE BASED QUESTIONS

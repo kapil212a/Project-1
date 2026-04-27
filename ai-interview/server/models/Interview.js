@@ -3,17 +3,9 @@ const mongoose = require("mongoose");
 const interviewSchema = new mongoose.Schema({
   userId: String,
 
-  role: String, 
-
-  score: {
-    type: Number,
-    default: 0
-  },
-
-  status: {
-    type: String,
-    default: "Completed"
-  },
+  role: String,        // ✅ IMPORTANT
+  score: Number,       // ✅ IMPORTANT
+  status: String,      // ✅ IMPORTANT
 
   createdAt: {
     type: Date,

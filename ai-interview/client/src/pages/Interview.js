@@ -13,7 +13,7 @@ function Interview() {
     const fetchQuestions = async () => {
       try {
         const res = await axios.get(
-          `http://127.0.0.1:5000/api/interview/${interviewId}`
+          `https://project-1-2-cki3.onrender.com/api/interview/${interviewId}`
         );
         setQuestions(res.data.questions);
       } catch (err) {
@@ -27,7 +27,7 @@ function Interview() {
   // submit answer
  const submitAnswer = async () => {
   try {
-    await axios.post("http://127.0.0.1:5000/api/answer", {
+    await axios.post("https://project-1-2-cki3.onrender.com/api/answer", {
       interviewId,
       questionId: questions[current]._id,  
       question: questions[current].text,

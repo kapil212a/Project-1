@@ -10,7 +10,7 @@ function Report() {
     const fetchReport = async () => {
       try {
         const res = await axios.get(
-          `http://127.0.0.1:5000/api/interview/report/${interviewId}`
+          `https://project-1-2-cki3.onrender.com/api/interview/report/${interviewId}`
         );
         setReport(res.data);
       } catch (err) {

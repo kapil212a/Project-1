@@ -9,7 +9,7 @@ function Dashboard() {
       const userId = localStorage.getItem("userId");
 
       const res = await axios.post(
-        "http://127.0.0.1:5000/api/interview/start",
+        "https://project-1-2-cki3.onrender.com/api/interview/start",
         { userId, role }   // ✅ send role
       );
 

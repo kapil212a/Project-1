@@ -21,3 +21,8 @@ router.get("/report/:interviewId", getInterviewReport);
 router.get("/:id", getInterview);
 
 module.exports = router;
+
+router.get("/", async (req, res) => {
+  const data = await Interview.find();
+  res.json(data);
+});

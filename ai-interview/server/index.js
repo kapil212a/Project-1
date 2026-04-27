@@ -49,16 +49,13 @@ require("dotenv").config();
 
 const app = express();
 
-// ✅ VERY SIMPLE & WORKING CORS (no credentials)
+// ✅ CORS FIRST
 app.use(cors());
 
-// ✅ Handle preflight requests manually
-app.options("*", cors());
-
-// middleware
+// ✅ middleware
 app.use(express.json());
 
-// routes
+// ✅ routes
 const authRoutes = require("./routes/authRoutes");
 const interviewRoutes = require("./routes/interviewRoutes");
 const answerRoutes = require("./routes/answerRoutes");
@@ -69,17 +66,17 @@ app.use("/api/interview", interviewRoutes);
 app.use("/api/answer", answerRoutes);
 app.use("/api/feedback", feedbackRoutes);
 
-// test route
+// ✅ test route
 app.get("/", (req, res) => {
   res.send("API is running 🚀");
 });
 
-// DB
+// ✅ DB
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB Connected"))
   .catch(err => console.log(err));
 
-// server
+// ✅ server
 app.listen(5000, "0.0.0.0", () => {
   console.log("Server running on port 5000");
 });

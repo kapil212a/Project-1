@@ -2,14 +2,13 @@ const mongoose = require("mongoose");
 
 const interviewSchema = new mongoose.Schema({
   userId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
+    type: String,
     required: true
   },
-  score: {
-    type: Number,
-    default: 0
+  createdAt: {
+    type: Date,
+    default: Date.now
   }
-}, { timestamps: true });
+});
 
 module.exports = mongoose.model("Interview", interviewSchema);

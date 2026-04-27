@@ -117,3 +117,18 @@ exports.getInterviewReport = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
+// ✅ GET USER INTERVIEW HISTORY
+exports.getUserInterviews = async (req, res) => {
+  try {
+    const { userId } = req.params;
+
+    const interviews = await Interview.find({ userId })
+      .sort({ createdAt: -1 });
+
+    res.json(interviews);
+
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};

@@ -20,6 +20,18 @@ function Login() {
     }
   };
 
+  <div className="mt-4 text-center">
+    <p>
+      New user?{" "}
+      <span
+        onClick={() => window.location.href = "/register"}
+        className="text-blue-500 cursor-pointer font-semibold"
+      >
+        Create Account
+      </span>
+    </p>
+  </div>
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-900 text-white">
 

@@ -4,16 +4,20 @@ const router = express.Router();
 const {
   startInterview,
   getInterview,
-  getInterviewReport   
+  getInterviewReport,
+  getUserInterviews
 } = require("../controllers/interviewController");
 
-// start interview
+// ✅ start interview
 router.post("/start", startInterview);
 
-// get interview questions
-router.get("/:id", getInterview);
+// ✅ USER HISTORY (put BEFORE /:id)
+router.get("/user/:userId", getUserInterviews);
 
-// get report
+// ✅ report route
 router.get("/report/:interviewId", getInterviewReport);
+
+// ✅ get interview questions (keep LAST)
+router.get("/:id", getInterview);
 
 module.exports = router;

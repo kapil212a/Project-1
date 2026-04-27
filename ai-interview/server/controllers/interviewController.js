@@ -11,14 +11,14 @@ exports.startInterview = async (req, res) => {
     const interview = await Interview.create({
       userId,
       role,
-      score: 0,              // default
-      status: "Completed"    // default
+      score: 0,              
+      status: "Completed"    
     });
 
     res.json({
       interviewId: interview._id
     });
-    
+
     let questionPool = [];
 
     // 🎯 ROLE BASED QUESTIONS
